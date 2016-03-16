@@ -5,7 +5,7 @@ import
     Base.convert,
     Base.abs
 
-include("../deps/build.jl")
+include("../deps/deps.jl")
 
 type Basic
     ptr::Ptr{Void}
