@@ -5,7 +5,7 @@ import
     Base.convert,
     Base.abs
 
-include("../deps/deps.jl")
+include("../deps/build.jl")
 
 type Basic
     ptr::Ptr{Void}
@@ -140,6 +140,54 @@ end
 function expand(b::Basic)
     a = Basic()
     ccall((:basic_expand, :libsymengine), Void, (Ptr{Basic}, Ptr{Basic}), &a, &b)
+    return a
+end
+
+function gcd(b1::Basic, b2::Basic)
+    a = Basic()
+    ccall((:ntheory_gcd, :libsymengine), Void, (Ptr{Basic}, Ptr{Basic}, Ptr{Basic}), &a, &b1, &b2)
+    return a
+end
+
+function lcm(b1::Basic, b2::Basic)
+    a = Basic()
+    ccall((:ntheory_lcm, :libsymengine), Void, (Ptr{Basic}, Ptr{Basic}, Ptr{Basic}), &a, &b1, &b2)
+    return a
+end
+
+function nextprime(b1::Basic, b2::Basic)
+    a = Basic()
+    ccall((:ntheory_nextprime, :libsymengine), Void, (Ptr{Basic}, Ptr{Basic}, Ptr{Basic}), &a, &b1, &b2)
+    return a
+end
+
+function mod(b1::Basic, b2::Basic)
+    a = Basic()
+    ccall((:ntheory_mod, :libsymengine), Void, (Ptr{Basic}, Ptr{Basic}, Ptr{Basic}), &a, &b1, &b2)
+    return a
+end
+
+function quotient(b1::Basic, b2::Basic)
+    a = Basic()
+    ccall((:ntheory_quotient, :libsymengine), Void, (Ptr{Basic}, Ptr{Basic}, Ptr{Basic}), &a, &b1, &b2)
+    return a
+end
+
+function fibonacci(x::Culong)
+    a = Basic()
+    ccall((:ntheory_fibonacci, :libsymengine), Void, (Ptr{Basic}, Culong), &a, x)
+    return a
+end
+    
+function lucas(x::Culong)
+    a = Basic()
+    ccall((:ntheory_lucas, :libsymengine), Void, (Ptr{Basic}, Culong), &a, x)
+    return a
+end
+
+function binomial(b::Basic, x::Culong)
+    a = Basic()
+    ccall((:ntheory_binomial, :libsymengine), Void, (Ptr{Basic}, Ptr{Basic}, Culong), &a, &b, x)
     return a
 end
 
