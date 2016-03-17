@@ -1,5 +1,4 @@
 *~
-deps/deps.jl
 deps/builds
 deps/downloads
 deps/src
