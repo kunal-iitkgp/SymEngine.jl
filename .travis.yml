@@ -3,9 +3,6 @@ sudo: false
 compiler:
   - gcc
   - clang
-os:
-  - linux
-  - osx
 julia:
     - release
     - nightly
