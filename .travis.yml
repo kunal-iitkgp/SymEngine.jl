@@ -1,8 +1,15 @@
 language: julia
 sudo: false
+compiler:
+  - gcc
+  - clang
+os:
+  - linux
+  - osx
 julia:
     - release
     - nightly
+    - 0.4
 notifications:
     email: false
 addons:
@@ -11,7 +18,11 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - libgmp-dev
-    - g++-4.7
+    - libmpfr-dev
+    - libmpc-dev
+    - binutils-dev
+    - gcc-5
+    - g++-5
 script:
     - julia -e 'Pkg.clone(pwd())'
     - julia -e 'Pkg.build("SymEngine")'
