@@ -9,7 +9,6 @@ os:
 julia:
     - release
     - nightly
-    - 0.4
 notifications:
     email: false
 addons:
@@ -21,8 +20,8 @@ addons:
     - libmpfr-dev
     - libmpc-dev
     - binutils-dev
-    - gcc-5
-    - g++-5
+    - gcc-4.8
+    - g++-4.8
 script:
     - julia -e 'Pkg.clone(pwd())'
     - julia -e 'Pkg.build("SymEngine")'
