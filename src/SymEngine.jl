@@ -146,4 +146,3 @@ end
 show(io::IO, b::Basic) = print(io, toString(b))
 
 end
-
