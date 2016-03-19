@@ -18,7 +18,8 @@ addons:
     - libmpc-dev
     - binutils-dev
     - g++-4.7
-    - g++-4.8
+    - g++-5
+    - gcc-5
     
 install:
   - export JULIA_SOURCE_DIR=`pwd`
@@ -37,8 +38,6 @@ install:
   # Setup travis for Ruby wrappers
   - cd $JULIA_SOURCE_DIR
 script:
-    - gcc --version
-    - g++ --version
     - julia -e 'Pkg.clone(pwd())'
     - julia -e 'Pkg.build("SymEngine")'
     - julia -e 'Pkg.test("SymEngine")'
