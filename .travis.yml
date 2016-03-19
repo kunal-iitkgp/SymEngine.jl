@@ -17,10 +17,10 @@ addons:
     - libmpfr-dev
     - libmpc-dev
     - binutils-dev
-    - g++-4.8
+    - g++-5
     
 install:
-  - export CXX=g++-4.8
+  - export CXX=g++-5
 script:
     - julia -e 'Pkg.clone(pwd())'
     - julia -e 'Pkg.build("SymEngine")'
