@@ -20,8 +20,7 @@ addons:
     - libmpfr-dev
     - libmpc-dev
     - binutils-dev
-    - gcc-4.8
-    - g++-4.8
+    - g++-4.7
     
 install:
   - export JULIA_SOURCE_DIR=`pwd`
