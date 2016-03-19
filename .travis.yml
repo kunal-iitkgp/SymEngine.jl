@@ -23,7 +23,7 @@ addons:
     - gcc-4.8
     - g++-4.8
     
-  install:
+install:
   - export JULIA_SOURCE_DIR=`pwd`
   - export TEST_CPP="no"
 
