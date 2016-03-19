@@ -24,6 +24,7 @@ addons:
     - g++-4.8
 script:
     - gcc --version
+    - g++ --version
     - julia -e 'Pkg.clone(pwd())'
     - julia -e 'Pkg.build("SymEngine")'
     - julia -e 'Pkg.test("SymEngine")'
