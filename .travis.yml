@@ -1,5 +1,8 @@
 language: julia
 sudo: false
+compiler:
+  - gcc
+  - clang
 os:
   - linux
   - osx
@@ -28,15 +31,15 @@ install:
   - git clone https://github.com/symengine/symengine symengine-cpp
   - cd symengine-cpp
   - git checkout `cat ../symengine_version.txt`
-
-  # Setup travis for C++ library
+  
   - source bin/install_travis.sh
-
-  # Build C++ library
-  - bin/test_travis.sh
-
-  # Setup travis for Ruby wrappers
-  - cd $JULIA_SOURCE_DIR
+  exclude:
+    - compiler: clang
+    - os: osx
+  include:
+    - os: linux
+    - bin/test_travis.sh
+    - cd $JULIA_SOURCE_DIR
 script:
     - julia -e 'Pkg.clone(pwd())'
     - julia -e 'Pkg.build("SymEngine")'
