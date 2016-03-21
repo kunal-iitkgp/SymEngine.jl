@@ -3,8 +3,9 @@ module SymEngine
 import
     Base.show,
     Base.convert,
-    Base.abs,
-    Base.Operators: +, -, ^, /, \, *
+    Base.abs
+
+import Base.Operators: +, -, ^, /, \, *
 
 include("../deps/deps.jl")
 
