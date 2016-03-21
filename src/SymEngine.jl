@@ -4,7 +4,7 @@ import
     Base.show,
     Base.convert,
     Base.abs,
-    Base : +, -, /, *, ^, \, ==
+    Base.(:(==))( ... )
 
 include("../deps/deps.jl")
 
