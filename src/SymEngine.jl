@@ -3,7 +3,8 @@ module SymEngine
 import
     Base.show,
     Base.convert,
-    Base.abs
+    Base.abs,
+    Base : +, -, /, *, ^, \, ==
 
 include("../deps/deps.jl")
 
