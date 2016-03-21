@@ -5,7 +5,7 @@ import
     Base.convert,
     Base.abs
 
-import Base.Operators: +, -, ^, /, \, *
+import Base.Operators: +, -, ^, /, \, *, ==
 
 include("../deps/deps.jl")
 
